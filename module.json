@@ -1,0 +1,12 @@
+{
+  "name": "maxsonar-example",
+  "version": "1.0.0",
+  "bin": "./source",
+  "private": true,
+  "description": "MaxSonar Ultrasonic Sensor Example for Mbed OS",
+  "author": "Daisuke Baba",
+  "license": "MIT",
+  "dependencies": {
+      "mbed-drivers": "^1.3.0"
+  }
+}
