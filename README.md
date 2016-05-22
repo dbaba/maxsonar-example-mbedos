@@ -6,10 +6,21 @@ MaxSonar Sensor Example for Mbed OS
 
 Sample code for retrieving the range data in cm via I2C.
 
+# How to migrate from v1.0.0
+
+    git pull
+    yt update
+    yt clean
+
+
 # How to setup (w/ ST Nucleo F401RE)
 
     yt target st-nucleo-f401re-gcc
     yt install
+
+# How to build
+
+    yt build
 
 # How to flash
 
