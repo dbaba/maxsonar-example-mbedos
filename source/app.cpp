@@ -1,11 +1,11 @@
 #include "mbed-drivers/mbed.h"
 
-#define ASYNC 0
+#define ASYNC 1
 
 #if ASYNC
-    #include "maxsonar-example/ultrasnoic_async.hpp"
+    #include "maxsonar-example/ultrasonic_async.hpp"
 #else
-    #include "maxsonar-example/ultrasnoic_sync.hpp"
+    #include "maxsonar-example/ultrasonic_sync.hpp"
 #endif
 
 static bool terminated = false;
@@ -25,11 +25,11 @@ static void blinky(void) {
 
 void app_start(int, char**) {
 #if ASYNC
-    ultrasnoic_distance_async_task_init(&terminated);
-    minar::Scheduler::postCallback(ultrasnoic_distance_async_task);
+    ultrasonic_distance_async_task_init(&terminated);
+    minar::Scheduler::postCallback(ultrasonic_distance_async_task);
 #else
-    ultrasnoic_distance_sync_task_init();
-    minar::Scheduler::postCallback(ultrasnoic_distance_sync_task).period(minar::milliseconds(500));
+    ultrasonic_distance_sync_task_init();
+    minar::Scheduler::postCallback(ultrasonic_distance_sync_task).period(minar::milliseconds(500));
 #endif
     blinky_task = minar::Scheduler::postCallback(blinky).period(minar::milliseconds(1000)).getHandle(); // 1Hz
 }

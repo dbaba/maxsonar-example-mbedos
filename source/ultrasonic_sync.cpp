@@ -1,12 +1,12 @@
-#include "maxsonar-example/ultrasnoic_sync.hpp"
+#include "maxsonar-example/ultrasonic_sync.hpp"
 
 static I2C i2cBus(PB_9, PB_8);
 
-void ultrasnoic_distance_sync_task_init(void) {
+void ultrasonic_distance_sync_task_init(void) {
     i2cBus.frequency(400000);
 }
 
-void ultrasnoic_distance_sync_task(void) {
+void ultrasonic_distance_sync_task(void) {
     // 0x51 (81) Take a range reading
     uint8_t cmd[] = { 0x00, 0x51 };
     i2cBus.write(I2C_ADDR_ULTRASONIC, (char *) cmd, 2);
